@@ -30,6 +30,22 @@
             padding-bottom: 0.25rem;
             transition: all 0.3s ease-in-out;
         }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chat-bubble {
+            animation: fadeInUp 0.4s ease forwards;
+        }
+
     </style>
 </head>
 <body class="font-inter bg-gray-50 text-gray-800">
@@ -46,7 +62,7 @@
 
     <header id="intro" class="bg-blue-600 text-white text-center py-12 md:py-20 shadow-md content-section">
         <div class="container mx-auto px-4">
-            <img src="https://qlogo4.store.qq.com/qzone/2738742877/2738742877/100?1743512314" class="rounded-full mb-4 mx-auto w-32 h-32 object-cover border-4 border-white shadow-lg" alt="头像">
+            <img src="image/100.jpeg" class="rounded-full mb-4 mx-auto w-32 h-32 object-cover border-4 border-white shadow-lg" alt="头像">
             <h1 class="text-4xl md:text-5xl font-bold mb-2">陈师傅</h1>
             <p class="text-xl md:text-2xl font-light">#it入校园（绷不住了） #见证达人</p>
         </div>
@@ -127,6 +143,17 @@
             </div>
         </div>
     </section>
+
+
+
+    <div id="chat-bubble-container" class="fixed bottom-24 right-4 flex flex-col gap-2 items-end z-50 hidden">
+        <div class="chat-bubble bg-white text-black px-4 py-2 rounded-xl shadow-md max-w-xs">？</div>
+        <div class="chat-bubble bg-white text-black px-4 py-2 rounded-xl shadow-md max-w-xs hidden">你怎么会划到这里？</div>
+        <div class="chat-bubble bg-white text-black px-4 py-2 rounded-xl shadow-md max-w-xs hidden">快出去快出去(>_<)</div>
+        <div class="chat-bubble bg-white text-black px-4 py-2 rounded-xl shadow-md max-w-xs flex items-center gap-2 hidden">
+            <img src="image/>_<.jpg" class="rounded float-end" alt=">_<" style="width: 100px; height: 100px;">
+        </div>
+    </div>
 
     <footer class="bg-gray-900 text-white text-center py-6">
         <div class="container mx-auto px-4">
@@ -218,6 +245,36 @@
                 sendResponseMessage.classList.add('hidden');
             }, 3000); 
         });
+
+        let chatTriggered = false;
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.body.scrollHeight;
+            const winHeight = window.innerHeight;
+
+            if (!chatTriggered && scrollTop + winHeight >= docHeight - 200) {
+                chatTriggered = true;
+
+                const container = document.getElementById('chat-bubble-container');
+                const bubbles = container.querySelectorAll('.chat-bubble');
+                container.classList.remove('hidden');
+
+                bubbles.forEach((bubble, index) => {
+                    setTimeout(() => {
+                        bubble.classList.remove('hidden');
+                    }, index * 1500);
+                });
+
+                setTimeout(() => {
+                    container.classList.add('opacity-0', 'transition-opacity', 'duration-1000');
+                    setTimeout(() => {
+                        container.classList.add('hidden');
+                    }, 1000); 
+                }, 7500);
+            }
+        });
+
     </script>
 </body>
 </html>
