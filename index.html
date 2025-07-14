@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人介绍</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'accent-color': '#f39c12',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .nav-link.active {
+            color: var(--accent-color) !important;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.25rem;
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="font-inter bg-gray-50 text-gray-800">
+    <nav id="navbar" class="fixed top-0 left-0 w-full bg-white bg-opacity-10 shadow-lg py-4 z-50 transition-all duration-300 ease-in-out">
+        <div class="container mx-auto flex flex-col md:flex-row justify-center items-center gap-3 md:gap-8 px-4 transition-all duration-300 ease-in-out">
+            <a href="#about" class="nav-link text-black text-lg font-medium hover:text-accent-color hover:bg-white hover:bg-opacity-50 transition-colors duration-300 rounded-md px-3 py-2">关于我</a>
+            <a href="#skills" class="nav-link text-black text-lg font-medium hover:text-accent-color hover:bg-white hover:bg-opacity-50 transition-colors duration-300 rounded-md px-3 py-2">我的技能</a>
+            <a href="#projects" class="nav-link text-black text-lg font-medium hover:text-accent-color hover:bg-white hover:bg-opacity-50 transition-colors duration-300 rounded-md px-3 py-2">我的项目</a>
+            <a href="#contact" class="nav-link text-black text-lg font-medium hover:text-accent-color hover:bg-white hover:bg-opacity-50 transition-colors duration-300 rounded-md px-3 py-2">联系我</a>
+        </div>
+    </nav>
+
+    <div class="h-[70px] md:h-[80px] w-full"></div>
+
+    <header id="intro" class="bg-blue-600 text-white text-center py-12 md:py-20 shadow-md content-section">
+        <div class="container mx-auto px-4">
+            <img src="https://qlogo4.store.qq.com/qzone/2738742877/2738742877/100?1743512314" class="rounded-full mb-4 mx-auto w-32 h-32 object-cover border-4 border-white shadow-lg" alt="头像">
+            <h1 class="text-4xl md:text-5xl font-bold mb-2">陈师傅</h1>
+            <p class="text-xl md:text-2xl font-light">#it入校园（绷不住了） #见证达人</p>
+        </div>
+    </header>
+
+    <section id="about" class="py-12 md:py-20 bg-white content-section">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center">关于我</h2>
+            <p class="text-lg md:text-xl text-center max-w-2xl mx-auto">编程爱好者，见证达人</p>
+        </div>
+    </section>
+
+    <section id="skills" class="py-12 md:py-20 bg-gray-100 content-section">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center">我的技能</h2>
+            <ul class="list-disc list-inside text-lg md:text-xl max-w-md mx-auto space-y-2">
+                <li>HTML5 / CSS3 / JavaScript</li>
+                <li>Tailwind CSS / Bootstrap</li>
+                <li>Python</li>
+                <li>快要过时的扁平简洁化UI审美</li>
+                <li>优秀的民主观念</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects" class="py-12 md:py-20 bg-white content-section">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center">项目历史</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                    <h5 class="text-2xl font-semibold mb-3">红星导航</h5>
+                    <p class="text-gray-700 mb-2">我的第一个html作品（自豪）</p>
+                    <p class="text-sm text-gray-500 select-none">最后一个版本发布于2022年9月</p>
+                </div>
+                <div class="bg-gray-50 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                    <h5 class="text-2xl font-semibold mb-3">红星OS</h5>
+                    <p class="text-gray-700 mb-2">第一个完整发布的python作品</p>
+                    <p class="text-sm text-gray-500 select-none">最后一个版本发布于2022年3月</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-12 md:py-20 bg-gray-100 content-section">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center">联系我</h2>
+            <form class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+                <div class="mb-5">
+                    <label for="name" class="block text-gray-700 text-lg font-medium mb-2">姓名</label>
+                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" id="name" placeholder="请输入姓名">
+                </div>
+                <div class="mb-5">
+                    <label for="email" class="block text-gray-700 text-lg font-medium mb-2">邮箱</label>
+                    <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" id="email" placeholder="请输入邮箱">
+                </div>
+                <div class="mb-5">
+                    <label for="message" class="block text-gray-700 text-lg font-medium mb-2">留言</label>
+                    <textarea class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 resize-y" id="message" rows="4" placeholder="请输入留言"></textarea>
+                </div>
+                <button id="sendMessageButton" type="button" class="w-full bg-blue-600 text-white py-3 px-6 rounded-md text-lg font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-md">点击发送</button>
+                <p id="sendResponseMessage" class="mt-4 text-center text-red-500 font-semibold hidden"></p>
+            </form>
+            <div class="text-center mt-12">
+                <div class="flex justify-center space-x-6">
+                    <a href="mailto:MacAuther114514@hotmail.com" target="_blank" rel="noopener noreferrer" class="block">
+                        <img src="https://placehold.co/60x60/0078D4/ffffff?text=Mail" alt="Email" class="w-14 h-14 rounded-full shadow-md hover:scale-110 transition-transform duration-300">
+                    </a>
+                    <a href="https://github.com/poop114514/" target="_blank" rel="noopener noreferrer" class="block">
+                        <img src="https://placehold.co/60x60/181717/ffffff?text=GitHub" alt="GitHub" class="w-14 h-14 rounded-full shadow-md hover:scale-110 transition-transform duration-300">
+                    </a>
+                    <a href="https://space.bilibili.com/1854878793?spm_id_from=333.1007.0.0" target="_blank" rel="noopener noreferrer" class="block">
+                        <img src="https://placehold.co/60x60/00A1D6/ffffff?text=BiliBili" alt="BiliBili" class="w-14 h-14 rounded-full shadow-md hover:scale-110 transition-transform duration-300">
+                    </a>
+                    <a href="http://2738742877.qzone.qq.com" target="_blank" rel="noopener noreferrer" class="block">
+                        <img src="https://placehold.co/60x60/00A1D6/ffffff?text=QQ" alt="QQ Zone" class="w-14 h-14 rounded-full shadow-md hover:scale-110 transition-transform duration-300">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white text-center py-6">
+        <div class="container mx-auto px-4">
+            &copy; 2025 陈师傅. 保留所有权利.
+        </div>
+    </footer>
+
+    <script>
+        let prevScrollPos = window.pageYOffset;
+        const navbar = document.getElementById("navbar");
+        let navbarHeight = navbar.offsetHeight;
+
+        const updateNavbarHeight = () => {
+            navbarHeight = navbar.offsetHeight;
+            if (window.pageYOffset <= navbarHeight) {
+                navbar.style.top = "0";
+            }
+        };
+        window.addEventListener('load', updateNavbarHeight);
+        window.addEventListener('resize', updateNavbarHeight);
+
+        window.onscroll = function() {
+            let currentScrollPos = window.pageYOffset;
+            if (prevScrollPos < currentScrollPos && currentScrollPos > navbarHeight) {
+                navbar.style.top = `-${navbarHeight}px`;
+            } else if (prevScrollPos > currentScrollPos) {
+                navbar.style.top = "0";
+            }
+            prevScrollPos = currentScrollPos;
+        };
+
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.content-section');
+        let sectionObserver;
+
+        const setupIntersectionObserver = () => {
+            if (sectionObserver) {
+                sectionObserver.disconnect();
+            }
+            const currentNavbarHeight = navbar.offsetHeight;
+            const observerOptions = {
+                root: null,
+                rootMargin: `-${currentNavbarHeight}px 0px 0px 0px`,
+                threshold: 0
+            };
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    const targetId = entry.target.id;
+                    const correspondingNavLink = document.querySelector(`.nav-link[href="#${targetId}"]`);
+                    if (correspondingNavLink) {
+                        if (entry.isIntersecting) {
+                            navLinks.forEach(link => link.classList.remove('active'));
+                            correspondingNavLink.classList.add('active');
+                        }
+                    }
+                });
+            };
+            sectionObserver = new IntersectionObserver(observerCallback, observerOptions);
+            sections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+        };
+
+        window.addEventListener('load', setupIntersectionObserver);
+        window.addEventListener('resize', setupIntersectionObserver);
+
+        window.addEventListener('load', () => {
+            const currentHash = window.location.hash;
+            if (currentHash) {
+                const initialSection = document.querySelector(currentHash);
+                if (initialSection) {
+                    initialSection.scrollIntoView({ behavior: 'smooth' });
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    const initialNavLink = document.querySelector(`.nav-link[href="${currentHash}"]`);
+                    if (initialNavLink) {
+                        initialNavLink.classList.add('active');
+                    }
+                }
+            }
+        });
+
+        const sendMessageButton = document.getElementById('sendMessageButton');
+        const sendResponseMessage = document.getElementById('sendResponseMessage');
+
+        sendMessageButton.addEventListener('click', function() {
+            sendResponseMessage.textContent = '傻孩子，我压根就没写后端'; 
+            sendResponseMessage.classList.remove('hidden');
+            setTimeout(function() {
+                sendResponseMessage.classList.add('hidden');
+            }, 3000); 
+        });
+    </script>
+</body>
+</html>
